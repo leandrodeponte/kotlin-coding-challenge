@@ -13,21 +13,11 @@ private fun isValidSymetricBinaryTree(node: Node<Int>? = null): Boolean {
 private fun isSymetric(leftNode: Node<Int>?, rightNode: Node<Int>?): Boolean {
     return if (leftNode == null && rightNode == null)
         true
-    else if (leftNode == null || rightNode == null)
+    else if (leftNode == null || rightNode == null || leftNode.data != rightNode.data)
         false
     else {
-        val isEqual = leftNode.data == rightNode.data
-        if (leftNode.left == null && rightNode.right == null) {
-            isEqual
-        } else if (leftNode.left != null && rightNode.right != null
-            && leftNode.right != null && rightNode.left != null) {
-            isEqual
-                    && isSymetric(leftNode.left, rightNode.right)
+         isSymetric(leftNode.left, rightNode.right)
                     && isSymetric(leftNode.right, rightNode.left)
-        } else {
-            false
-        }
-
     }
 }
 
