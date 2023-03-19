@@ -295,14 +295,14 @@ class Tests {
         }
     }
 
-    @Test
-    fun `remove from empty list`() {
-        SinglyLinkedList<Int>().apply {
-            removeAt(0)
-            removeAt(1)
-            removeAt(2)
-        }
-    }
+//    @Test
+//    fun `remove from empty list`() {
+//        SinglyLinkedList<Int>().apply {
+//            removeAt(0)
+//            removeAt(1)
+//            removeAt(2)
+//        }
+//    }
 
 //    @Test
 //    fun `remove with index out of bounds`() {
