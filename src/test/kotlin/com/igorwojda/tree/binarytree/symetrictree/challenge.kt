@@ -1,4 +1,4 @@
-package com.igorwojda.tree.symetrictree
+package com.igorwojda.tree.binarytree.symetrictree
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
