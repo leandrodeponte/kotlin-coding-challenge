@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.2")
     testImplementation("org.amshove.kluent:kluent:1.72")
 }

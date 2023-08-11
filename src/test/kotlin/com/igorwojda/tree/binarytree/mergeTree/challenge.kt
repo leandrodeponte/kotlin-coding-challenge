@@ -1,27 +1,31 @@
-package com.igorwojda.tree.binarytree.invert
+package com.igorwojda.tree.binarytree.mergeTree
 
 import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
-private fun invert(node: Node<Int>? = null): Node<Int>? {
+private fun merge(node: Node<Int>? = null, node2: Node<Int>? = null): Node<Int>? {
     if (node == null) {
-        return null
+        return node2
     }
-    invertNode(node.left, node.right)
-    return node
+    if (node2 == null) {
+        return node
+    }
+    return merge(node, node2)
 }
 
-private fun invertNode(leftNode: Node<Int>?, rightNode: Node<Int>?) {
-
-    if(leftNode != null && rightNode != null) {
-        val rightNodeData = rightNode!!.data
-        rightNode.data = leftNode!!.data
-        leftNode.data = rightNodeData
-        invertNode(leftNode.left, rightNode.right)
-        invertNode(leftNode.right, rightNode.left)
-    }
-
-}
+//private fun merge(node: Node<Int>?, node2: Node<Int>?) : Node<Int>? {
+//
+//    var node : Node()
+//
+//    if(leftNode != null && rightNode != null) {
+//        val rightNodeData = rightNode!!.data
+//        rightNode.data = leftNode!!.data
+//        leftNode.data = rightNodeData
+//        invertNode(leftNode.left, rightNode.right)
+//        invertNode(leftNode.right, rightNode.left)
+//    }
+//
+//}
 
 private class Test {
 
@@ -33,8 +37,8 @@ private class Test {
         // --------------------------
 
         val node = Node(data = 1)
-        val invertTree = invert(node)
-        invertTree!!.data shouldBeEqualTo 1
+        //val invertTree = invert(node)
+        //invertTree!!.data shouldBeEqualTo 1
     }
 
     @Test
@@ -43,19 +47,29 @@ private class Test {
         //
         //            1
         //          /   \
-        //         2      3
-        //        / \    / \
-        //       4   5  6   7
+        //         3      2
+        //        /
+        //       5
         //
         // --------------------------
 
         // -- -------Invert------------
         //
-        //            1
+        //            2
         //          /   \
-        //         3      2
-        //        / \    / \
-        //       7   6  5   4
+        //         1      3
+        //          \      \
+        //           4      7
+        //
+        // --------------------------
+
+        // -- -------Invert------------
+        //
+        //            3
+        //          /   \
+        //         4      5
+        //        / \      \
+        //       5   4      7
         //
         // --------------------------
 
@@ -66,9 +80,9 @@ private class Test {
         node.left!!.insertRight(5)
         node.right!!.insertLeft(6)
         node.right!!.insertRight(7)
-        val invertedTree = invert(node)
-        invertedTree!!.left!!.data shouldBeEqualTo 3
-        invertedTree!!.right!!.data shouldBeEqualTo 2
+        //val invertedTree = invert(node)
+//        invertedTree!!.left!!.data shouldBeEqualTo 3
+//        invertedTree!!.right!!.data shouldBeEqualTo 2
 
         node.left!!.left!!.data shouldBeEqualTo 7
         node.left!!.right!!.data shouldBeEqualTo 6
