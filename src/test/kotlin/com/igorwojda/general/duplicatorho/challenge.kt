@@ -4,8 +4,7 @@ import org.amshove.kluent.shouldBeEqualTo
 import org.junit.jupiter.api.Test
 
 class SquareService {
-    val duplicator = Duplicator()
-
+    private val duplicator = Duplicator()
     fun requestWithDuplication(value: Int) = duplicator.duplicate(value, ::requestToService)
     fun requestToService(s: Int) = s*s
 }

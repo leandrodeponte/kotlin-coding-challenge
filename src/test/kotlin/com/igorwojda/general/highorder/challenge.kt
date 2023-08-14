@@ -16,7 +16,7 @@ class PaymentApiClient : ApiClient {
 
 class SendingApiClient : ApiClient {
     val requester = ResilientRequester()
-    override fun request(s: String?) {
+    override fun request(str: String?) {
         requester.requestWithResilience()
     }
 }
